@@ -1,0 +1,31 @@
+#!/bin/bash
+# /etc/init.d/monitor
+
+### BEGIN INIT INFO
+# Provides:          monitor
+# Required-Start:
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Monitor app
+# Description:       This service is used to start node js and the monitor application
+### END INIT INFO
+
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin
+
+case "$1" in
+    start)
+        echo "Starting monitor"
+        sudo /usr/local/bin/pm2 start /home/pi/monitor/server.js --name monitor
+        ;;
+    stop)
+        echo "Stopping monitor"
+        sudo /usr/local/bin/pm2 stop
+        ;;
+    *)
+        echo "Usage: /etc/init.d/monitor start|stop"
+        exit 1
+        ;;
+esac
+
+exit 0

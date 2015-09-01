@@ -2,7 +2,6 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-  ul
-      each val in results
-          p #{val.ts} #{val.temperature}
+  each val in results
+      h2 #{val.temperature} degC
+      h4 taken at #{val.ts}

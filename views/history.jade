@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    div.container
+        div.row
+            div.three.columns time stamp
+            div.three.columns temperature
+        each val in results
+          div.row
+              div.three.columns #{val.ds} #{val.ts}
+              div.three.columns #{val.temperature}
+      
